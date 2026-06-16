@@ -1,0 +1,871 @@
+---
+const base = import.meta.env.BASE_URL;
+
+const experience = [
+  {
+    role: "Freelance Software Developer",
+    company: "Self-Employed",
+    location: "Remote",
+    period: "2024 – Present",
+    logo: null,
+    points: [
+      "Design and ship full-stack web and mobile applications for clients, spanning React/Next.js frontends and Node, Flask, and Spring backends.",
+      "Build responsive, database-backed web apps with REST and GraphQL APIs, authentication, and cloud deployment.",
+      "Own projects end to end — from scoping and architecture through deployment and ongoing maintenance.",
+    ],
+  },
+  {
+    role: "Software Engineer",
+    company: "Meta",
+    location: "Menlo Park, CA",
+    period: "March 2025 – Present",
+    logo: "logos/meta.png",
+    points: [
+      "Developed and optimized audio algorithms for real-time communication, improving low-bitrate call quality and reducing latency at billion-user scale.",
+      "Designed and ran large-scale experiments to evaluate audio codec performance across diverse network conditions.",
+      "Shipped and scaled audio features for Messenger and WhatsApp, enhancing reliability and performance of apps used by billions.",
+    ],
+  },
+  {
+    role: "Software Engineer",
+    company: "Ally Financial",
+    location: "East Lansing, MI",
+    period: "Sep 2024 – Dec 2024",
+    logo: "logos/ally.png",
+    points: [
+      "Built a full-stack software solution as part of an industry-sponsored Michigan State University capstone project with Ally.",
+      "Collaborated in an Agile team to deliver features against real client requirements, presenting the final product to Ally engineers.",
+    ],
+  },
+  {
+    role: "Software Engineering Intern",
+    company: "General Motors",
+    location: "Austin, TX",
+    period: "May 2024 – August 2024",
+    logo: "logos/gm.png",
+    points: [
+      "Built a mobile dashboard for the GM Motorsports team delivering real-time race order and lap-time updates for NASCAR and INDYCAR events.",
+      "Streamed live and historic race data using RSockets from a Spring Boot backend to a React.js frontend in a clean, tabular UI.",
+      "Launched an app now used by 50+ Motorsports team members, driving a 25% improvement in data accessibility and race performance analysis.",
+    ],
+  },
+  {
+    role: "Software Engineering Intern",
+    company: "General Motors",
+    location: "Warren, MI",
+    period: "May 2023 – August 2023",
+    logo: "logos/gm.png",
+    points: [
+      "Designed a full-stack e-commerce platform promoting GM energy products with a Next.js frontend and Java Spring + GraphQL backend.",
+      "Integrated Core Services into the backend to improve transactions and securely store user and payment information.",
+      "Contributed to the Ultium Home recommendation platform, helping boost Silverado EV sales (3,257 vehicles sold in 2024).",
+    ],
+  },
+];
+
+const education = [
+  {
+    title: "B.S. Computer Science",
+    org: "Michigan State University",
+    location: "East Lansing, MI",
+    period: "Sep 2021 – Dec 2024",
+    points: [],
+  },
+  {
+    title: "Student Research Assistant",
+    org: "Michigan State University",
+    location: "East Lansing, MI",
+    period: "Sep 2023 – Dec 2024",
+    points: [
+      "Fine-tuned large language models for empathetic interactions using Retrieval-Augmented Generation (RAG) and model fine-tuning.",
+      "Built knowledge graphs from BERT word embeddings, applying cosine-similarity analysis to visualize model decision-making.",
+    ],
+  },
+];
+
+const projects = [
+  {
+    name: "Predictive Analytics & Maintenance Chatbot",
+    award: "Best Hack for Predictive Maintenance @ SpartaHack 9",
+    description:
+      "A chatbot that pairs a large language model with a TensorFlow LSTM model to predict anomalies in machine systems from historical data, letting users feed in new readings for live analysis.",
+    tags: ["Python", "TensorFlow", "Keras", "OpenAI", "LangChain", "FastAPI", "MySQL"],
+    image: "projects/pam.png",
+    link: "https://devpost.com/software/pam-predictive-analytics-maintenance-chatbot",
+  },
+  {
+    name: "RecycleMe",
+    award: "Best Project @ Spartan Hackers Code-White",
+    description:
+      "A Flutter mobile app that uses a trained computer-vision model to determine whether recyclable items are too contaminated to be recycled.",
+    tags: ["Flutter", "Dart", "PyTorch", "Firebase", "Pandas"],
+    image: "projects/recycleme.png",
+    link: "https://devpost.com/software/recycleme-016pya",
+  },
+  {
+    name: "Studdybuddy.ai",
+    award: "Best Use of AI in Education + Best Use of Next.js @ GrizzHacks 6",
+    description:
+      "An AI learning tool that generates customized study sets and flashcards from uploaded materials like PDFs and class notes using LangChain and GPT.",
+    tags: ["Next.js", "Supabase", "Tailwind CSS", "LangChain", "Vercel"],
+    image: "projects/studybuddy.jpg",
+    link: "https://devpost.com/software/studybuddy-ai",
+  },
+];
+
+const skills = [
+  {
+    group: "Languages",
+    color: "#6ea8fe",
+    items: [
+      { name: "Python", icon: "python" },
+      { name: "Java", icon: "java" },
+      { name: "C/C++", icon: "cpp" },
+      { name: "TypeScript", icon: "ts" },
+      { name: "JavaScript", icon: "js" },
+      { name: "SQL", icon: "mysql" },
+    ],
+  },
+  {
+    group: "Frameworks",
+    color: "#a78bfa",
+    items: [
+      { name: "React", icon: "react" },
+      { name: "Next.js", icon: "nextjs" },
+      { name: "Node.js", icon: "nodejs" },
+      { name: "Flask", icon: "flask" },
+      { name: "FastAPI", icon: "fastapi" },
+      { name: "Spring", icon: "spring" },
+      { name: "PyTorch", icon: "pytorch" },
+      { name: "TensorFlow", icon: "tensorflow" },
+      { name: "Flutter", icon: "flutter" },
+      { name: "LangChain", icon: null },
+      { name: "Tailwind CSS", icon: "tailwind" },
+    ],
+  },
+  {
+    group: "Tools & Cloud",
+    color: "#34d399",
+    items: [
+      { name: "Git", icon: "git" },
+      { name: "Docker", icon: "docker" },
+      { name: "Google Cloud", icon: "gcp" },
+      { name: "Azure", icon: "azure" },
+      { name: "MySQL", icon: "mysql" },
+      { name: "MongoDB", icon: "mongodb" },
+      { name: "PostgreSQL", icon: "postgres" },
+      { name: "GraphQL", icon: "graphql" },
+      { name: "Firebase", icon: "firebase" },
+      { name: "Supabase", icon: "supabase" },
+    ],
+  },
+];
+
+const clubs = [
+  {
+    role: "Project Co-Lead",
+    org: "Imagine Software Club at MSU",
+    location: "East Lansing, MI",
+    period: "Jan 2024 – Apr 2024",
+    points: [
+      "Co-led a student team designing and building a software project from concept through delivery.",
+    ],
+  },
+  {
+    role: "Telemetry & Infotainment Lead",
+    org: "MSU Solar Racing Team",
+    location: "East Lansing, MI",
+    period: "Sep 2022 – Aug 2024",
+    points: [
+      "Led telemetry and infotainment development for the team's solar race car, building systems to stream and visualize live vehicle data.",
+      "Started as an Embedded Software Team Member before stepping up to lead the telemetry effort.",
+    ],
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" href={`${base}favicon.ico`} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Areeb Islam — Software Engineer at Meta and freelance software developer building full-stack applications."
+    />
+    <title>Areeb Islam — Software Engineer</title>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav__inner container">
+        <a class="nav__brand" href="#top">Areeb Islam</a>
+        <nav class="nav__links">
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+          <a href="#clubs">Clubs</a>
+          <a class="nav__cta" href="#contact">Get in touch</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero__inner">
+          <div class="hero__text">
+            <span class="badge"><span class="badge__dot"></span> Available for freelance work</span>
+            <h1 class="hero__title">
+              Hi, I'm <span class="accent">Areeb Islam</span>.
+            </h1>
+            <p class="hero__lead">
+              Software Engineer at <strong>Meta</strong> working on real-time audio,
+              and a <strong>freelance software developer</strong> building full-stack
+              applications for clients.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="mailto:islamareeb.21@gmail.com">Email me</a>
+              <a class="btn" href="https://github.com/are021" target="_blank" rel="noopener">GitHub</a>
+              <a class="btn" href="https://linkedin.com/in/areeb-islam" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+          <div class="hero__photo">
+            <img src={`${base}picture.jpg`} alt="Areeb Islam" width="320" height="320" />
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section section--alt reveal">
+        <div class="container">
+          <header class="section__header">
+            <span class="section__num">01</span>
+            <h2 class="section__title">Experience</h2>
+          </header>
+          <div class="timeline">
+            {experience.map((job) => (
+              <article class="card">
+                <div class="card__head">
+                  <div class="card__heading">
+                    {job.logo ? (
+                      <img class="card__logo" src={`${base}${job.logo}`} alt={`${job.company} logo`} width="46" height="46" loading="lazy" />
+                    ) : (
+                      <span class="card__logo card__logo--text">{job.company.charAt(0)}</span>
+                    )}
+                    <div>
+                      <h3 class="card__role">{job.role}</h3>
+                      <p class="card__company">{job.company} · {job.location}</p>
+                    </div>
+                  </div>
+                  <span class="card__period">{job.period}</span>
+                </div>
+                <ul class="card__points">
+                  {job.points.map((p) => <li>{p}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section reveal">
+        <div class="container">
+          <header class="section__header">
+            <span class="section__num">02</span>
+            <h2 class="section__title">Tech Stack</h2>
+          </header>
+          <div class="stack">
+            {skills.map((skill) => (
+              <div class="stack__group" style={`--c: ${skill.color}`}>
+                <h3 class="stack__label">{skill.group}</h3>
+                <div class="stack__grid">
+                  {skill.items.map((item) => (
+                    <div class="chip">
+                      {item.icon ? (
+                        <img
+                          class="chip__icon"
+                          src={`https://skillicons.dev/icons?i=${item.icon}`}
+                          alt={item.name}
+                          width="40"
+                          height="40"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span class="chip__icon chip__icon--text">{item.name.charAt(0)}</span>
+                      )}
+                      <span class="chip__name">{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section section--alt reveal">
+        <div class="container">
+          <header class="section__header">
+            <span class="section__num">03</span>
+            <h2 class="section__title">Projects</h2>
+          </header>
+          <div class="grid">
+            {projects.map((project) => (
+              <a class="card card--project" href={project.link} target="_blank" rel="noopener">
+                <div class="card__media">
+                  <img src={`${base}${project.image}`} alt={`${project.name} screenshot`} loading="lazy" />
+                  <span class="card__trophy">🏆</span>
+                </div>
+                <div class="card__body">
+                  <h3 class="card__role">{project.name} <span class="card__ext">↗</span></h3>
+                  <p class="card__award">{project.award}</p>
+                  <p class="card__desc">{project.description}</p>
+                  <ul class="tags">
+                    {project.tags.map((t) => <li class="tag">{t}</li>)}
+                  </ul>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section reveal">
+        <div class="container">
+          <header class="section__header">
+            <span class="section__num">04</span>
+            <h2 class="section__title">Education &amp; Research</h2>
+          </header>
+          <div class="timeline">
+            {education.map((item) => (
+              <article class="card">
+                <div class="card__head">
+                  <div>
+                    <h3 class="card__role">{item.title}</h3>
+                    <p class="card__company">{item.org} · {item.location}</p>
+                  </div>
+                  <span class="card__period">{item.period}</span>
+                </div>
+                {item.points.length > 0 && (
+                  <ul class="card__points">
+                    {item.points.map((p) => <li>{p}</li>)}
+                  </ul>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section id="clubs" class="section section--alt reveal">
+        <div class="container">
+          <header class="section__header">
+            <span class="section__num">05</span>
+            <h2 class="section__title">Leadership &amp; Clubs</h2>
+          </header>
+          <div class="timeline">
+            {clubs.map((item) => (
+              <article class="card">
+                <div class="card__head">
+                  <div>
+                    <h3 class="card__role">{item.role}</h3>
+                    <p class="card__company">{item.org} · {item.location}</p>
+                  </div>
+                  <span class="card__period">{item.period}</span>
+                </div>
+                <ul class="card__points">
+                  {item.points.map((p) => <li>{p}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section reveal">
+        <div class="container">
+          <div class="contact">
+            <span class="section__num">06</span>
+            <h2 class="contact__title">Let's build something together.</h2>
+            <p class="contact__lead">
+              I'm open to freelance projects and new opportunities. The fastest way
+              to reach me is by email — I'll get back to you soon.
+            </p>
+            <a class="contact__email" href="mailto:islamareeb.21@gmail.com">islamareeb.21@gmail.com</a>
+            <div class="contact__links">
+              <a class="btn btn--primary" href="mailto:islamareeb.21@gmail.com">Email me</a>
+              <a class="btn" href="https://github.com/are021" target="_blank" rel="noopener">GitHub</a>
+              <a class="btn" href="https://linkedin.com/in/areeb-islam" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p>© {new Date().getFullYear()} Areeb Islam</p>
+        <div class="footer__links">
+          <a href="mailto:islamareeb.21@gmail.com">Email</a>
+          <a href="https://github.com/are021" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com/in/areeb-islam" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      els.forEach((el) => io.observe(el));
+    </script>
+
+    <style is:global>
+      :root {
+        --bg: #0b0d12;
+        --bg-soft: #10131b;
+        --surface: #171b25;
+        --surface-2: #1c212d;
+        --border: #262d3a;
+        --text: #e7e9ee;
+        --muted: #97a1b2;
+        --accent: #6ea8fe;
+        --accent-soft: rgba(110, 168, 254, 0.12);
+        --radius: 16px;
+        --maxw: 1000px;
+      }
+
+      * { box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(1100px 560px at 85% -10%, rgba(110, 168, 254, 0.12), transparent 60%),
+          var(--bg);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      .accent { color: var(--accent); }
+
+      .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; width: 100%; }
+
+      /* ---- Nav ---- */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(11, 13, 18, 0.72);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+      .nav__brand { font-weight: 700; letter-spacing: 0.2px; }
+      .nav__links { display: flex; align-items: center; gap: 22px; }
+      .nav__links a { color: var(--muted); font-size: 0.95rem; transition: color 0.2s; }
+      .nav__links a:hover { color: var(--text); }
+      .nav__cta {
+        color: var(--accent) !important;
+        border: 1px solid var(--border);
+        padding: 7px 14px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+      }
+
+      /* ---- Hero ---- */
+      .hero { padding: 92px 0 84px; }
+      .hero__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 56px;
+      }
+      .hero__text { flex: 1 1 420px; min-width: 0; }
+      .hero__photo { flex: 0 0 auto; }
+      .hero__photo img {
+        width: clamp(180px, 28vw, 300px);
+        height: clamp(180px, 28vw, 300px);
+        object-fit: cover;
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        box-shadow:
+          0 24px 60px -24px rgba(110, 168, 254, 0.55),
+          0 0 0 6px rgba(110, 168, 254, 0.06);
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #34d399;
+        background: rgba(52, 211, 153, 0.10);
+        border: 1px solid rgba(52, 211, 153, 0.30);
+        padding: 7px 14px;
+        border-radius: 999px;
+        margin-bottom: 22px;
+      }
+      .badge__dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #34d399;
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
+        70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+      }
+      .hero__title {
+        font-size: clamp(2.6rem, 6.5vw, 4rem);
+        line-height: 1.08;
+        margin: 0 0 20px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+      .hero__lead {
+        font-size: clamp(1.05rem, 2.4vw, 1.28rem);
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 0 32px;
+      }
+      .hero__lead strong { color: var(--text); }
+      .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+      .btn {
+        display: inline-block;
+        padding: 11px 20px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: transform 0.15s ease, border-color 0.2s, background 0.2s;
+      }
+      .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+      .btn--primary {
+        background: var(--accent);
+        color: #0b0d12;
+        border-color: var(--accent);
+      }
+
+      /* ---- Sections / bands ---- */
+      .section { padding: 80px 0; border-top: 1px solid var(--border); }
+      .section--alt { background: var(--bg-soft); }
+      .section__header {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        margin-bottom: 36px;
+      }
+      .section__num {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--accent);
+        opacity: 0.7;
+      }
+      .section__title {
+        font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+        margin: 0;
+        font-weight: 800;
+        letter-spacing: -0.3px;
+      }
+
+      .timeline { display: grid; gap: 18px; }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+      }
+
+      /* ---- Cards ---- */
+      .card {
+        position: relative;
+        background: linear-gradient(180deg, var(--surface), var(--bg-soft));
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px 26px;
+        transition: transform 0.18s ease, border-color 0.2s, box-shadow 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: var(--accent);
+        box-shadow: 0 12px 32px -16px rgba(110, 168, 254, 0.5);
+      }
+      .card__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .card__heading { display: flex; align-items: center; gap: 14px; min-width: 0; }
+      .card__logo {
+        width: 46px;
+        height: 46px;
+        flex: 0 0 auto;
+        border-radius: 11px;
+        object-fit: contain;
+        background: #fff;
+        padding: 6px;
+        border: 1px solid var(--border);
+      }
+      .card__logo--text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #0b0d12;
+        background: var(--accent);
+        padding: 0;
+      }
+      .card__role { margin: 0; font-size: 1.18rem; font-weight: 700; }
+      .card__company { margin: 4px 0 0; color: var(--accent); font-size: 0.95rem; }
+      .card__period {
+        color: var(--muted);
+        font-size: 0.84rem;
+        white-space: nowrap;
+        padding-top: 4px;
+      }
+      .card__points { margin: 16px 0 0; padding-left: 20px; color: var(--muted); }
+      .card__points li { margin-bottom: 8px; }
+      .card__points li::marker { color: var(--accent); }
+
+      .card--project {
+        padding: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .card__media {
+        position: relative;
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+        background: var(--bg-soft);
+        border-bottom: 1px solid var(--border);
+      }
+      .card__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      .card--project:hover .card__media img { transform: scale(1.05); }
+      .card__body { padding: 22px 24px 24px; }
+      .card__ext {
+        font-size: 0.85rem;
+        color: var(--muted);
+        transition: color 0.2s;
+      }
+      .card--project:hover .card__ext { color: var(--accent); }
+      .card__trophy {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        font-size: 1.1rem;
+        background: rgba(11, 13, 18, 0.7);
+        backdrop-filter: blur(4px);
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+      }
+      .card__award {
+        margin: 8px 0 0;
+        font-size: 0.84rem;
+        font-weight: 700;
+        color: #ffd479;
+      }
+      .card__desc { margin: 12px 0 0; color: var(--muted); }
+
+      .tags { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+      .tag {
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 5px 12px;
+        border-radius: 8px;
+        background: var(--surface-2);
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+
+      /* ---- Skills / Tech Stack ---- */
+      .stack { display: grid; gap: 32px; }
+      .stack__group { display: grid; gap: 16px; }
+      .stack__label {
+        margin: 0;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--muted);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .stack__label::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        background: var(--c);
+        box-shadow: 0 0 12px var(--c);
+      }
+      .stack__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+        gap: 14px;
+      }
+      .chip {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 22px 12px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        cursor: default;
+      }
+      .chip:hover {
+        transform: translateY(-5px);
+        border-color: var(--c);
+        background: color-mix(in srgb, var(--c) 8%, var(--surface));
+        box-shadow: 0 14px 30px -16px var(--c);
+      }
+      .chip__icon { width: 40px; height: 40px; display: block; }
+      .chip__icon--text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #0b0d12;
+        background: var(--c);
+        border-radius: 10px;
+      }
+      .chip__name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-align: center;
+      }
+      .chip:hover .chip__name { color: var(--text); }
+
+      /* ---- Contact ---- */
+      .contact {
+        position: relative;
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto;
+        background:
+          radial-gradient(120% 140% at 50% 0%, rgba(110, 168, 254, 0.14), transparent 65%),
+          var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 56px 32px 48px;
+      }
+      .contact .section__num { display: block; margin-bottom: 14px; }
+      .contact__title {
+        font-size: clamp(1.7rem, 4vw, 2.4rem);
+        font-weight: 800;
+        letter-spacing: -0.4px;
+        margin: 0 0 16px;
+      }
+      .contact__lead {
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 480px;
+        margin: 0 auto 28px;
+      }
+      .contact__email {
+        display: inline-block;
+        font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+        font-weight: 700;
+        color: var(--accent);
+        padding: 10px 22px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--accent-soft);
+        margin-bottom: 28px;
+        transition: transform 0.15s ease, border-color 0.2s;
+      }
+      .contact__email:hover { transform: translateY(-2px); border-color: var(--accent); }
+      .contact__links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+      }
+
+      /* ---- Footer ---- */
+      .footer { border-top: 1px solid var(--border); }
+      .footer__inner {
+        padding-top: 36px;
+        padding-bottom: 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        color: var(--muted);
+      }
+      .footer__links { display: flex; gap: 20px; }
+      .footer__links a { color: var(--muted); transition: color 0.2s; }
+      .footer__links a:hover { color: var(--accent); }
+
+      /* ---- Reveal ---- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .reveal.is-visible { opacity: 1; transform: none; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; transition: none; }
+        .badge__dot { animation: none; }
+        html { scroll-behavior: auto; }
+      }
+
+      @media (max-width: 640px) {
+        .nav__links { gap: 14px; }
+        .nav__links a:not(.nav__cta) { display: none; }
+        .hero__inner { flex-direction: column-reverse; text-align: center; gap: 32px; }
+        .hero__actions { justify-content: center; }
+      }
+    </style>
+  </body>
+</html>
