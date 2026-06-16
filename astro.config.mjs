@@ -9,5 +9,5 @@ import { defineConfig } from 'astro/config';
 //   base: '/',
 export default defineConfig({
   site: 'https://are021.github.io',
-  base: '/portfolio',
+  base: '/portfolio/',
 });
